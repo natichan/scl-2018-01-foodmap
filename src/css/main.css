@@ -9,9 +9,11 @@ html, body, .map {
 h1, h4{
     color: #f1f1f1;
     font-family: 'Permanent Marker', cursive;
-    text-shadow: 8px 8px px rgb(170, 170, 170);
 }
 img{
     width: 50%;
     height: 50%;
+}
+h1{
+    text-shadow: 8px 8px 8px rgb(170, 170, 170);
 }
