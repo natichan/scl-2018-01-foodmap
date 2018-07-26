@@ -1,4 +1,14 @@
 body{
-    color: orange;
-    background-image: url('https://cdn.pixabay.com/photo/2017/01/26/02/06/platter-2009590_960_720.jpg');
+  
+    background-color: black;
+    margin: 0 auto;
+    width: 100%;
+    background-size: cover;
+    position: absolute; 
+}
+h1{
+    color: #f1f1f1;
+    font-family: 'Permanent Marker', cursive;
+    padding-top: 30%;
+    text-shadow: 8px 8px 8px rgb(170, 170, 170);
 }
