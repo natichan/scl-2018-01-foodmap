@@ -27,7 +27,7 @@ function initMap(position) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
       for (var i = 0; i < results.length; i++) {
         createMarker(results[i]);
-        console.log(results[i]);
+        // console.log(results[i]);
         showInformationPlaces(results[i]);
       }
     }
@@ -36,10 +36,10 @@ function initMap(position) {
   function showInformationPlaces(place){
     const name = place.name;
     const radius = place.vicinity;
-    const photo = place.photo; 
+    const photo = place.photos[0].getUrl({'maxWidth': 350, 'maxHeight': 350});
     
     const containerInfo = document.getElementById('infoContainer');
-    containerInfo.innerHTML += `<h4>${name}</h4><p>${radius}</p><img>src=${photo}</img>` 
+    containerInfo.innerHTML += `<h4>${name}</h4><p>${radius}</p><img src='${photo}'></img>` 
     console.log(name);
     console.log(radius);
     console.log(photo);
