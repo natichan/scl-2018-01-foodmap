@@ -8,8 +8,8 @@ function initMap(position) {
     
     var lat = position.coords.latitude;
     var lng = position.coords.longitude
-    var pyrmont = {lat, lng};
-  map = new google.maps.Map(document.getElementById('map'), {
+    var pos = {lat, lng};
+    map = new google.maps.Map(document.getElementById('map'), {
     center: {lat, lng},
     zoom: 13
   });
@@ -17,11 +17,11 @@ function initMap(position) {
     infowindow = new google.maps.InfoWindow();
     var service = new google.maps.places.PlacesService(map);
     service.nearbySearch({
-      location: pyrmont,
-      radius: 500,
+      location: pos,
+      radius: 5000,
       type: ['restaurant']
     }, callback);
-  }
+  
 
   function callback(results, status) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
@@ -44,4 +44,4 @@ function initMap(position) {
     });
   }
 
-  
+}
