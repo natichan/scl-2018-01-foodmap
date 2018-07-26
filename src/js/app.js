@@ -12,7 +12,7 @@ function initMap(position) {
     var pos = {lat, lng};
     map = new google.maps.Map(document.getElementById('map'), {
     center: pos,
-    zoom: 16
+    zoom: 18
   });
   
     infowindow = new google.maps.InfoWindow();
@@ -28,26 +28,28 @@ function initMap(position) {
       for (var i = 0; i < results.length; i++) {
         createMarker(results[i]);
         //console.log(results[i].id);
-        showInformationPlaces(results[i]);
+        showInformationPhoto(results[i]);
+
       }
     }
   }
 
-  function showInformationPlaces(place){
-    /*  */
+  function showInformationPhoto(place){
     const photo = place.photos[0].getUrl({'maxWidth': 200, 'maxHeight': 200});
     
     const containerInfo = document.getElementById('showPhoto');
-    containerInfo.innerHTML += `<img src='${photo}'></img>` 
-
-    const name = place.name;
-    const address = place.vicinity;
-    const containerModal = document.getElementById('modalInfo');
-    containerModal.innerHTML += `<h4>${name}</h4><p>${address}</p>` 
-    // console.log(name);
-    // console.log(radius);
+    containerInfo.innerHTML += `<img onclick="showModal('${place.place_id}')" src='${photo}'></img>`
     // console.log(photo);
+    showModal(place)
 }
+  function showModal(mod){
+    const name = mod.name;
+    const address = mod.vicinity;
+    const containerModal = document.getElementById('modalInfo');
+    containerModal.innerHTML = `<h2>${name}</h2><p>${address}</p>` 
+    // console.log(name);
+    // console.log(address);
+  }
 
   function createMarker(place) {
     var placeLoc = place.geometry.location;

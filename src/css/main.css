@@ -1,9 +1,17 @@
 #map {
-    height: 80%;
+    height: 100%;
 }
-html, body, .mapa {
+html, body, .map {
     height: 100%; 
     padding: 0;
     background-color: black;
-    color: orange;
+}
+h1, h4{
+    color: #f1f1f1;
+    font-family: 'Permanent Marker', cursive;
+    text-shadow: 8px 8px px rgb(170, 170, 170);
+}
+img{
+    width: 50%;
+    height: 50%;
 }

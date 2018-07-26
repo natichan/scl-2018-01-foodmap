@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="../src/css/main.css" />
-    
 </head>
 <body>
     <main class="container">
@@ -18,25 +18,31 @@
             </div>
         </div>
     </main>
-    <div class="container mapa">
-        <div class="row mapa">
-            <div class="cols12 mapa">
+    <div class="container map">
+        <div class="row map">
+            <div class="col s12 map">
                 <div id="map"></div>
             </div>
         </div>
     </div>
-        
-    <section class="container">
+    <section class="container places">
         <div class="row">
             <div class="cols12 center">
                 <h4>Comida cerca de ti</h4>
-                    <input id="pac-input" class="controls" type="text" placeholder="Filtrar restaurants">
-                    <div id="showPhoto" class="modal-trigger" href="#modal1"></div>
+            <div class="row"> 
+                <select class="browser-default">
+                  <option value="" disabled selected>Ordenar por</option>
+                  <option value="1">Rating</option>
+                </select> 
+            </div>     
+            <div class="row">                    
+                    <div id="showPhoto" class="modal-trigger responsive-img estilo" href="#modal1"></div>
                     <div id="modal1" class="modal">
                         <div id="modalInfo" class="modal-content"></div>
                             <div class="modal-footer">
                             <a href="#!" class="modal-close waves-effect waves-green btn-flat">Listo</a>
                         </div>
+                    </div>
                 </div>                     
             </div>
         </div>
