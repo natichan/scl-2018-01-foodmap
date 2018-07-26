@@ -27,22 +27,26 @@ function initMap(position) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
       for (var i = 0; i < results.length; i++) {
         createMarker(results[i]);
-        // console.log(results[i]);
+        //console.log(results[i].id);
         showInformationPlaces(results[i]);
       }
     }
   }
 
   function showInformationPlaces(place){
-    const name = place.name;
-    const radius = place.vicinity;
-    const photo = place.photos[0].getUrl({'maxWidth': 350, 'maxHeight': 350});
+    /*  */
+    const photo = place.photos[0].getUrl({'maxWidth': 200, 'maxHeight': 200});
     
-    const containerInfo = document.getElementById('infoContainer');
-    containerInfo.innerHTML += `<h4>${name}</h4><p>${radius}</p><img src='${photo}'></img>` 
-    console.log(name);
-    console.log(radius);
-    console.log(photo);
+    const containerInfo = document.getElementById('showPhoto');
+    containerInfo.innerHTML += `<img src='${photo}'></img>` 
+
+    const name = place.name;
+    const address = place.vicinity;
+    const containerModal = document.getElementById('modalInfo');
+    containerModal.innerHTML += `<h4>${name}</h4><p>${address}</p>` 
+    // console.log(name);
+    // console.log(radius);
+    // console.log(photo);
 }
 
   function createMarker(place) {
