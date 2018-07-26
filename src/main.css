@@ -1,9 +1,0 @@
-#map {
-    height: 80%;
-}
-html, body, .mapa {
-    height: 100%; 
-    padding: 0;
-    background-color: black;
-    color: orange;
-}
