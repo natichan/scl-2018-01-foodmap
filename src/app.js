@@ -2,14 +2,18 @@
 var map;
 var infowindow;
 
-  function initMap() {
-    var pyrmont = {lat: -33.4375545, lng: -70.65048960000001};
+navigator.geolocation.getCurrentPosition(initMap);
 
-    map = new google.maps.Map(document.getElementById('map'), {
-      center: pyrmont,
-      zoom: 15
-    });
-
+function initMap(position) {
+    
+    var lat = position.coords.latitude;
+    var lng = position.coords.longitude
+    var pyrmont = {lat, lng};
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat, lng},
+    zoom: 13
+  });
+  
     infowindow = new google.maps.InfoWindow();
     var service = new google.maps.places.PlacesService(map);
     service.nearbySearch({
@@ -39,3 +43,5 @@ var infowindow;
       infowindow.open(map, this);
     });
   }
+
+  
