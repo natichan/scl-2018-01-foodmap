@@ -7,3 +7,5 @@ function redirect() {
     window.location="main.html"
         return
 }
+
+
