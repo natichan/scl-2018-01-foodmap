@@ -7,16 +7,16 @@ navigator.geolocation.getCurrentPosition(initMap);
 
 function initMap(position) {
     
-    var lat = position.coords.latitude;
-    var lng = position.coords.longitude
-    var pos = {lat, lng};
+    const lat = position.coords.latitude;
+    const lng = position.coords.longitude
+    const pos = {lat, lng};
     map = new google.maps.Map(document.getElementById('map'), {
     center: pos,
     zoom: 16
   });
        
     infowindow = new google.maps.InfoWindow();
-    var service = new google.maps.places.PlacesService(map);
+    const service = new google.maps.places.PlacesService(map);
     service.nearbySearch({
       location: pos,
       radius: 500,
@@ -25,9 +25,9 @@ function initMap(position) {
   
     function callback(results, status) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
-      for (var i = 0; i < results.length; i++) {
+      for (let i = 0; i < results.length; i++) {
         createMarker(results[i]);
-        console.log(results[i].id);
+        console.log(results[i]);
         showInformationPhoto(results[i]);
 
       }
@@ -43,15 +43,24 @@ function initMap(position) {
   function showModal(mod){
     const name = mod.name;
     const address = mod.vicinity;
+    const rating = mod.rating;
+
     const containerModal = document.getElementById('modalInfo');
-    containerModal.innerHTML = `<h2>${name}</h2><p>${address}</p>` 
+    containerModal.innerHTML = `<h2>${name}</h2><p>Dirección ${address}</p><p>Rating ${rating}</p>` 
     // console.log(name);
     // console.log(address);
   }
+
+  const iconMap = {
+    url: 'https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png',
+    scaledSize: new google.maps.Size(30, 30)
+  }
+  
   function createMarker(place) {
-    var placeLoc = place.geometry.location;
-    var marker = new google.maps.Marker({
+    const placeLoc = place.geometry.location;
+    let marker = new google.maps.Marker({
       map: map,
+      icon: iconMap,
       position: place.geometry.location
     });
 
@@ -60,17 +69,17 @@ function initMap(position) {
       infowindow.open(map, this);
     });
   }
-    var input = document.getElementById('searchInput');
-    var searchBox = new google.maps.places.SearchBox(input);
+    let input = document.getElementById('searchInput');
+    let searchBox = new google.maps.places.SearchBox(input);
 
     map.addListener('bounds_changed', function() {
       searchBox.setBounds(map.getBounds());
     });
 
-    var markers = [];
+    let markers = [];
     // escucha el evento que gatilla el usuario al seleccionar la predicción, resive los detalles de ese lugar
     searchBox.addListener('places_changed', function() {
-      var places = searchBox.getPlaces();
+      let places = searchBox.getPlaces();
       if (places.length == 0) {
         return;
       }
@@ -81,9 +90,9 @@ function initMap(position) {
       markers = [];
 
       // Por cada lugar, obtener el incono, nombre y lugar
-      var bounds = new google.maps.LatLngBounds();
+      let bounds = new google.maps.LatLngBounds(); 
       places.forEach(function(place) {
-        var icon = {
+        let icon = {
           url: place.icon, // icono cuchillo y tenedor
           size: new google.maps.Size(71, 71),
           origin: new google.maps.Point(0, 0),
