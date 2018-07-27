@@ -4,7 +4,7 @@
 html, body, .map {
     height: 100%; 
     padding: 0;
-    background-color: rgba(0, 0, 0, 0.884);
+    background-image: url('../wood-1700562_960_720.jpg');
 }
 h1, h4{
     color: #f1f1f1;
