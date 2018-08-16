@@ -77,7 +77,7 @@ function initMap(position) {
     });
 
     let markers = [];
-    // escucha el evento que gatilla el usuario al seleccionar la predicción, resive los detalles de ese lugar
+    // escucha el evento que gatilla el usuario al seleccionar la predicción, resibe los detalles de ese lugar
     searchBox.addListener('places_changed', function() {
       let places = searchBox.getPlaces();
       if (places.length == 0) {
@@ -89,7 +89,7 @@ function initMap(position) {
       });
       markers = [];
 
-      // Por cada lugar, obtener el incono, nombre y lugar
+      // Por cada lugar, obtener el icono, nombre y lugar
       let bounds = new google.maps.LatLngBounds(); 
       places.forEach(function(place) {
         let icon = {
