@@ -27,7 +27,7 @@ function initMap(position) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
       for (let i = 0; i < results.length; i++) {
         createMarker(results[i]);
-        console.log(results[i]);
+        // console.log(results[i]);
         showInformationPhoto(results[i]);
 
       }
@@ -77,7 +77,7 @@ function initMap(position) {
     });
 
     let markers = [];
-    // escucha el evento que gatilla el usuario al seleccionar la predicción, resibe los detalles de ese lugar
+    // escucha el evento que gatilla el usuario al seleccionar la predicción, recibe los detalles de ese lugar
     searchBox.addListener('places_changed', function() {
       let places = searchBox.getPlaces();
       if (places.length == 0) {
